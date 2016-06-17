@@ -1,0 +1,86 @@
+	{
+       "Name": "Mongodb",
+       "Title": "Mongodb",
+       "Version": "3.0",
+       "Command": "/usr/bin/mongod --smallfiles",
+       "Description": "Mongodb for Control Center",
+       "Tags": null,
+       "ImageID": "mongo:3.0",
+       "Instances": {
+         "Min": 1,
+         "Max": 1,
+         "Default": 1
+       },
+       "ChangeOptions": null,
+       "Launch": "auto",
+       "HostPolicy": "",
+       "Hostname": "",
+       "Privileged": false,
+       "ConfigFiles": {
+       },
+       "Context": null,
+       "Endpoints": [
+         {
+           "Name": "mongodb",
+           "Purpose": "export",
+           "Protocol": "tcp",
+           "PortNumber": 27017,
+           "PortTemplate": "",
+           "VirtualAddress": "",
+           "Application": "mongodb",
+           "ApplicationTemplate": "",
+           "AddressConfig": {
+             "Port": 0,
+             "Protocol": ""
+           },
+           "VHosts": [
+           ]
+         }
+	],
+       "Services": [],
+       "Tasks": null,
+       "LogFilters": null,
+       "Volumes": [
+		{
+			"Owner": "mongodb:mongodb",
+		"Permission": "0750",
+                   "ResourcePath": "mongo-journal",
+                   "ContainerPath": "/dat/db/journal",
+                   "Type": "",
+                   "InitContainerPath": ""
+                 }
+
+       ],
+       "LogConfigs": [
+		{
+			"Path":"/var/log/mongo/mongo.log",
+			"Type":"mongo",
+			"Filters": null,
+                       "LogTags": null
+                     }
+	],
+       "Snapshot": {
+         "Pause": "",
+         "Resume": ""
+       },
+       "RAMCommitment": "1G",
+       "CPUCommitment": 1,
+       "Runs": null,
+       "Actions": null,
+	"HealthChecks": {
+     "cluster_health": {
+       "Script": "mongostat --rowcount 1",
+       "Interval": 10,
+       "Timeout": 0
+     }
+   },
+       "Prereqs": null,
+       "MonitoringProfile": {
+         "MetricConfigs": null,
+         "GraphConfigs": null,
+         "ThresholdConfigs": null
+       },
+       "MemoryLimit": 0,
+       "CPUShares": 0,
+       "PIDFile": ""
+     }

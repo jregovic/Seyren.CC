@@ -1,0 +1,99 @@
+	{
+       "Name": "Seyren",
+       "Title": "Seyren",
+       "Version": "1.0.4",
+       "Command": "/opt/seyren/bin/seyren.sh",
+       "Description": "Seyren for Control Center",
+       "Tags": null,
+       "ImageID": "jregovic/seyren:1.4.0",
+       "Instances": {
+         "Min": 1,
+         "Max": 1,
+         "Default": 1
+       },
+       "ChangeOptions": null,
+       "Launch": "auto",
+       "HostPolicy": "",
+       "Hostname": "",
+       "Privileged": true,
+       "ConfigFiles": {
+         "/opt/seyren/conf/seyren.conf": {
+           "Filename": "/opt/seyren/conf/seyren.conf",
+           "Owner": "root:root",
+           "Permissions": "0664"
+         }
+       },
+       "Context": null,
+       "Endpoints": [
+         {
+           "Name": "seyren",
+           "Purpose": "export",
+           "Protocol": "tcp",
+           "PortNumber": 8080,
+           "PortTemplate": "",
+           "VirtualAddress": "",
+           "Application": "seyren",
+           "ApplicationTemplate": "",
+           "AddressConfig": {
+             "Port": 0,
+             "Protocol": ""
+           },
+           "VHosts": [
+             "seyren"
+           ]
+         },
+	{
+		"Name": "mongodb",
+		"Purpose": "import",
+		"Protocol": "tcp",
+           "PortNumber": 27017,
+           "PortTemplate": "",
+           "VirtualAddress": "",
+           "Application": "mongodb",
+           "ApplicationTemplate": "",
+           "AddressConfig": {
+             "Port": 0,
+             "Protocol": ""
+           },
+           "VHosts": [
+	]
+	}
+],
+       "Services": [],
+       "Tasks": null,
+       "LogFilters": null,
+       "Volumes": [
+       ],
+       "LogConfigs": [
+		{
+			"Path":"/var/log/seyren/seyren.log",
+			"Type":"seyren",
+			"Filters": null,
+                       "LogTags": null
+                     }
+	],
+       "Snapshot": {
+         "Pause": "",
+         "Resume": ""
+       },
+       "RAMCommitment": "1G",
+       "CPUCommitment": 1,
+       "Runs": null,
+       "Actions": null,
+	"HealthChecks": {
+     "cluster_health": {
+       "Script": "/bin/true",
+       "Interval": 10,
+       "Timeout": 0
+     }
+   },
+       "Prereqs": null,
+       "MonitoringProfile": {
+         "MetricConfigs": null,
+         "GraphConfigs": null,
+         "ThresholdConfigs": null
+       },
+       "MemoryLimit": 0,
+       "CPUShares": 0,
+       "PIDFile": ""
+     }
