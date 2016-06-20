@@ -1,11 +1,11 @@
 	{
        "Name": "Mongodb",
        "Title": "Mongodb",
-       "Version": "3.0",
+       "Version": "3.2",
        "Command": "/usr/bin/mongod --smallfiles",
        "Description": "Mongodb for Control Center",
        "Tags": null,
-       "ImageID": "mongo:3.0",
+       "ImageID": "mongo:3.2",
        "Instances": {
          "Min": 1,
          "Max": 1,
